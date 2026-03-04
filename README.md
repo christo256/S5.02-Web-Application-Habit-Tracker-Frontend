@@ -163,20 +163,38 @@ Admin User:
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
-- Context API for global auth state
-- Axios service layer for API calls
-- Protected routes with role-based access
+- **Context API** for global authentication state management
+- **Axios service layer** for centralized API calls with JWT interceptor
+- **Protected routes** with role-based access control (USER/ADMIN)
+- **Component-based** structure for reusability
 
 ---
 
-## 🎯 How to Use
+## 🎯 Usage Flow
 
-1. Login or register
-2. Create habits
-3. Track streaks
-4. View rankings
+### 1. Login
+
+Navigate to http://localhost:3000/login and login with `admin/admin123`
+
+### 2. Create a Habit
+
+- Click "Nuevo Hábito" button
+- Fill in name, description, frequency (DAILY/WEEKLY/MONTHLY), and target count
+- Click "Crear Hábito"
+
+### 3. Complete a Habit
+
+- Click "Completar Hoy" button on any habit card
+- Streak updates automatically
+- Confetti celebration on 7-day milestones! 🎉
+
+### 4. View Rankings
+
+Navigate to "Rankings" to see top 10 habits in each frequency category.
+
+**Note:** Habits can only be completed once per day.
 
 ---
 
