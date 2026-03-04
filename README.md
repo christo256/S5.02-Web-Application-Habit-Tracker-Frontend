@@ -1,70 +1,238 @@
-# Getting Started with Create React App
+# Habit Tracker - Frontend 🎯
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React 18 application for tracking daily, weekly, and monthly habits with real-time statistics and competitive rankings.
 
-## Available Scripts
+This project is the frontend client of the Habit Tracker full-stack application, built with a REST API backend using JWT authentication.
 
-In the project directory, you can run:
+**Backend Repository:** [Habit Tracker API](https://github.com/christo256/S5.02-Web-Application-Habit-Tracker)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React 18**
+- **JavaScript (ES6+)**
+- **React Router v6** for client-side routing
+- **Axios** for HTTP requests
+- **Tailwind CSS 3.4.19** for styling
+- **Framer Motion** for animations
+- **Lucide React** for icons
+- **React Hot Toast** for notifications
+- **Canvas Confetti** for celebrations
+- **Node.js 20.20.0 LTS**
+- **npm** for package management
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
 
-### `npm run build`
+### Authentication
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- User registration and login
+- JWT token storage in localStorage
+- Automatic token refresh
+- Protected routes with redirect to login
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### User Dashboard
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- View all personal habits
+- Real-time statistics cards:
+  - Total habits
+  - Completed today
+  - Current streak sum
+  - Best streak
+- Create new habits with frequency selection (DAILY/WEEKLY/MONTHLY)
+- Complete habits with one click
+- Delete habits with confirmation
+- Confetti celebration every 7-day streak milestone
 
-### `npm run eject`
+### Rankings
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Separate leaderboards for each frequency type
+- Top 10 habits per category (DAILY/WEEKLY/MONTHLY)
+- Medal icons for top 3 positions
+- Current and longest streak display
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Admin Panel (ROLE_ADMIN only)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- View all users in the system
+- View all habits from all users
+- Delete users (except other admins)
+- Global statistics
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Design
 
-## Learn More
+- Modern glassmorphism UI
+- Dark theme with gradient background
+- Smooth animations and transitions
+- Responsive layout
+- Color-coded frequency badges (green/cyan/purple)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🗂️ Project Structure
+```
+habit-tracker-frontend/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── CreateHabitModal.jsx    # Modal for creating habits
+│   │   ├── HabitCard.jsx           # Individual habit display
+│   │   ├── Navbar.jsx              # Navigation bar
+│   │   └── ProtectedRoute.jsx      # Route protection HOC
+│   ├── pages/
+│   │   ├── AdminPanel.jsx          # Admin dashboard
+│   │   ├── Dashboard.jsx           # User dashboard
+│   │   ├── Login.jsx               # Login page
+│   │   ├── Register.jsx            # Registration page
+│   │   └── Rankings.jsx            # Rankings page
+│   ├── context/
+│   │   └── AuthContext.jsx         # Authentication state management
+│   ├── services/
+│   │   └── api.js                  # Axios configuration and API calls
+│   ├── App.js                      # Main app component with routing
+│   ├── index.js                    # React entry point
+│   └── index.css                   # Global styles and Tailwind
+├── tailwind.config.js
+├── package.json
+└── README.md
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🛠️ Installation & Setup
 
-### Analyzing the Bundle Size
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Node.js 20.20.0 LTS** or higher
+- **npm** (comes with Node.js)
+- **Backend API** running on http://localhost:8080
 
-### Making a Progressive Web App
+### Steps
+```bash
+# Clone the repository
+git clone https://github.com/christo256/S5.02-Web-Application-Habit-Tracker-Frontend.git
+cd S5.02-Web-Application-Habit-Tracker-Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Install dependencies
+npm install
 
-### Advanced Configuration
+# Start development server
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The application will start on **http://localhost:3000**
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## ⚙️ Configuration
 
-### `npm run build` fails to minify
+### API Base URL
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The frontend connects to the backend at `http://localhost:8080/api` by default.
+
+To change the API URL, edit `src/services/api.js`:
+```javascript
+const api = axios.create({
+  baseURL: 'http://localhost:8080/api' // Change this if needed
+});
+```
+
+---
+
+## 🔑 Default Credentials
+```
+Admin User:
+  Username: admin
+  Password: admin123
+  Role: ROLE_ADMIN
+```
+
+---
+
+## 📱 Pages & Routes
+
+| Route | Component | Access | Description |
+|-------|-----------|--------|-------------|
+| `/login` | Login | Public | User login |
+| `/register` | Register | Public | User registration |
+| `/dashboard` | Dashboard | Protected | User's habits and stats |
+| `/rankings` | Rankings | Protected | Leaderboards by frequency |
+| `/admin` | AdminPanel | Admin only | User and habit management |
+
+---
+
+## Architecture
+
+- Context API for global auth state
+- Axios service layer for API calls
+- Protected routes with role-based access
+
+---
+
+## 🎯 How to Use
+
+1. Login or register
+2. Create habits
+3. Track streaks
+4. View rankings
+
+---
+
+
+## 🧪 Testing
+
+### Backend
+
+Make sure the backend is running on http://localhost:8080.
+
+You can run it using Docker:
+
+```bash
+docker-compose up -d
+```
+Or locally with Maven:
+```bash
+mvn spring-boot:run
+```
+
+Access http://localhost:3000 and test all features.
+
+---
+
+## 🐛 Troubleshooting
+
+- Make sure backend is running on http://localhost:8080
+- Check token expiration if you receive 401 errors
+
+---
+
+
+## 🚀 Build for Production
+```bash
+# Create optimized production build
+npm run build
+
+# The build folder will contain optimized files ready for deployment
+```
+
+Deploy the `build/` folder to any static hosting service (Netlify, Vercel, GitHub Pages, etc.)
+
+---
+
+## 👨‍💻 Author
+
+**Christopher**
+
+- GitHub: [@christo256](https://github.com/christo256)
+- Backend: [Habit Tracker API](https://github.com/christo256/S5.02-Web-Application-Habit-Tracker)
+- Frontend: [Habit Tracker Frontend](https://github.com/christo256/S5.02-Web-Application-Habit-Tracker-Frontend)
+
+---
+
+## 📄 License
+
+This project is open source and available for educational purposes.
+
+**Built using React and Tailwind CSS**
